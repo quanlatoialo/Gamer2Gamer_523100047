@@ -97,10 +97,10 @@ export default function Footer() {
           {/* Academic / Project Disclaimer */}
           <div>
             <h4 className="text-white font-bold text-xs uppercase tracking-widest mb-4 font-mono text-emerald-400">
-              Đồ Án Tốt Nghiệp HAQ
+              Đồ Án Kỳ HAQ
             </h4>
             <p className="text-xs text-gray-400 leading-relaxed mb-3 font-light">
-              Hệ thống được phát triển phục vụ đồ án tốt nghiệp chuyên ngành CNTT. Toàn bộ chính sách thanh toán và số dư tiền tệ đều được mô phỏng phục vụ nghiên cứu học thuật và bảo vệ khóa luận.
+              Hệ thống được phát triển phục vụ đồ án kỳ chuyên ngành CNTT. Toàn bộ chính sách thanh toán và số dư tiền tệ đều được mô phỏng phục vụ nghiên cứu và học tập.
             </p>
             <div className="text-[11px] text-amber-300 bg-amber-950/40 border border-amber-500/30 px-3 py-1.5 rounded-xl inline-flex items-center gap-1.5 font-medium">
               <span>● Môi trường Sandbox thử nghiệm</span>

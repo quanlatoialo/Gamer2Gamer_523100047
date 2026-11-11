@@ -1,4 +1,7 @@
 'use strict';
+process.noDeprecation = true;
+process.emitWarning = () => {};
+process.env.DOTENV_CONFIG_QUIET = 'true';
 const os = require('os');
 const mongoose = require('mongoose');
 const { MongoMemoryReplSet } = require('mongodb-memory-server');

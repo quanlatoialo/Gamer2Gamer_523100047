@@ -11,7 +11,12 @@ html.light {
   --background: #f8fafc;
   --foreground: #0f172a;
   --card-bg: #ffffff;
-  --border-color: rgba(15, 23, 42, 0.1);
+  --border-color: #e2e8f0;
+  color-scheme: light;
+}
+
+html.dark {
+  color-scheme: dark;
 }
 
 body {
@@ -32,9 +37,9 @@ html.light body {
   background-color: #f8fafc !important;
   color: #0f172a !important;
   background-image:
-    radial-gradient(ellipse 90% 60% at 50% -20%, rgba(139, 92, 246, 0.10), transparent),
-    radial-gradient(ellipse 70% 50% at 100% 50%, rgba(59, 130, 246, 0.06), transparent),
-    radial-gradient(ellipse 70% 50% at 0% 70%, rgba(16, 185, 129, 0.05), transparent);
+    radial-gradient(ellipse 90% 60% at 50% -20%, rgba(139, 92, 246, 0.08), transparent),
+    radial-gradient(ellipse 70% 50% at 100% 50%, rgba(59, 130, 246, 0.05), transparent),
+    radial-gradient(ellipse 70% 50% at 0% 70%, rgba(16, 185, 129, 0.04), transparent);
 }
 
 h1, h2, h3, h4, .font-heading {
@@ -71,6 +76,12 @@ h1, h2, h3, h4, .font-heading {
 
 .purple-cyan-gradient-text {
   background: linear-gradient(135deg, #c084fc 0%, #818cf8 45%, #38bdf8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+html.light .purple-cyan-gradient-text {
+  background: linear-gradient(135deg, #7c3aed 0%, #4f46e5 50%, #0284c7 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -121,123 +132,244 @@ html.light ::-webkit-scrollbar-thumb:hover {
 }
 
 /* =========================================================
-   LIGHT MODE THEME ADAPTATIONS (html.light)
+   COMPLETE LIGHT MODE THEME OVERRIDES (html.light)
    ========================================================= */
 
-/* Surface & Card Backgrounds */
-html.light .bg-\[\#06090e\],
-html.light .bg-\[\#06090e\]\/85 {
-  background-color: rgba(255, 255, 255, 0.9) !important;
+/* 1. Page & Structural Backgrounds */
+html.light [class*="bg-[#06090e"] {
+  background-color: rgba(255, 255, 255, 0.94) !important;
 }
 
-html.light .bg-\[\#05070c\] {
+html.light [class*="bg-[#07090e"] {
+  background-color: #f8fafc !important;
+}
+
+html.light [class*="bg-[#05070c"] {
   background-color: #f1f5f9 !important;
 }
 
-html.light .bg-\[\#080d18\],
-html.light .bg-\[\#080d18\]\/90,
-html.light .bg-\[\#090d16\],
-html.light .bg-\[\#090d16\]\/90,
-html.light .bg-\[\#0a0f1d\],
-html.light .bg-\[\#0a0f1d\]\/95,
-html.light .bg-\[\#0c1220\],
-html.light .bg-\[\#0c1220\]\/80,
-html.light .bg-\[\#0d131f\],
-html.light .bg-\[\#0d131f\]\/90,
-html.light .bg-\[\#0e1424\],
-html.light .bg-\[\#111722\],
-html.light .bg-gray-900,
-html.light .bg-gray-900\/80,
-html.light .bg-gray-900\/60,
-html.light .bg-gray-900\/50,
-html.light .bg-gray-900\/40,
-html.light .bg-gray-950 {
+/* 2. Cards, Panels, Dropdowns & Modals -> Crisp White */
+html.light [class*="bg-[#080d18"],
+html.light [class*="bg-[#090d16"],
+html.light [class*="bg-[#0a0f1d"],
+html.light [class*="bg-[#0c1220"],
+html.light [class*="bg-[#0e1424"],
+html.light [class*="bg-[#111722"] {
   background-color: #ffffff !important;
+  box-shadow: 0 4px 20px -4px rgba(15, 23, 42, 0.06) !important;
 }
 
+/* 3. Interactive Areas, Secondary Buttons, Filter Chips, Sub-boxes -> Soft Light Slate */
+html.light [class*="bg-[#0d131f"],
+html.light [class*="bg-[#131926"],
+html.light [class*="bg-[#141b27"],
+html.light [class*="bg-[#161f2e"],
+html.light [class*="bg-[#182133"],
 html.light .bg-gray-800,
-html.light .bg-gray-800\/70,
-html.light .bg-gray-800\/60,
-html.light .bg-gray-800\/50,
-html.light .bg-gray-800\/40 {
+html.light [class*="bg-gray-800/"],
+html.light [class*="bg-white/[0.0"] {
   background-color: #f1f5f9 !important;
+  border-color: #cbd5e1 !important;
+  color: #1e293b !important;
 }
 
-html.light .hover\:bg-gray-800:hover,
-html.light .hover\:bg-gray-800\/70:hover,
-html.light .hover\:bg-gray-700:hover {
-  background-color: #e2e8f0 !important;
-}
-
-/* Subtle Translucent White Surface Overlays -> Slate Overlays in Light Mode */
-html.light .bg-white\/\[0\.02\],
-html.light .bg-white\/\[0\.03\],
-html.light .bg-white\/\[0\.04\],
-html.light .bg-white\/\[0\.05\] {
-  background-color: rgba(15, 23, 42, 0.04) !important;
-}
-
-html.light .hover\:bg-white\/\[0\.06\]:hover,
-html.light .hover\:bg-white\/\[0\.08\]:hover,
-html.light .hover\:bg-white\/\[0\.1\]:hover {
-  background-color: rgba(15, 23, 42, 0.08) !important;
-}
-
-/* Dark Gradient Surfaces -> Crisp Light Gradient Surfaces */
-html.light [class*="from-[#0d121f]"],
-html.light [class*="from-[#0e1424]"],
-html.light [class*="from-[#0f172a]"],
-html.light [class*="from-[#101729]"],
-html.light [class*="from-[#111728]"],
-html.light [class*="from-[#17122e]"] {
-  --tw-gradient-from: #ffffff !important;
-  --tw-gradient-via: #f8fafc !important;
-  --tw-gradient-to: #f1f5f9 !important;
-}
-
-html.light [class*="via-[#0c111f]"],
-html.light [class*="via-[#101428]"],
-html.light [class*="via-[#161226]"],
-html.light [class*="via-[#16122c]"] {
-  --tw-gradient-via: #f5f3ff !important;
-}
-
-html.light [class*="to-[#070a12]"],
-html.light [class*="to-[#090d16]"],
-html.light [class*="to-[#0b101c]"],
-html.light [class*="to-[#0c1220]"],
-html.light [class*="to-[#0c1824]"],
-html.light [class*="to-[#0d121f]"],
-html.light [class*="to-[#0d1322]"],
-html.light [class*="to-[#131f37]"] {
-  --tw-gradient-to: #f8fafc !important;
-}
-
-html.light .luxury-glass {
-  background: rgba(255, 255, 255, 0.85);
-  border: 1px solid rgba(15, 23, 42, 0.1);
-}
-
-/* Borders */
-html.light .border-white\/\[0\.05\],
-html.light .border-white\/\[0\.06\],
-html.light .border-white\/\[0\.08\],
-html.light .border-white\/10,
-html.light .border-white\/15,
-html.light .border-white\/20,
-html.light .border-gray-800,
-html.light .border-gray-800\/60,
-html.light .border-gray-800\/80,
-html.light .border-gray-700 {
-  border-color: rgba(15, 23, 42, 0.12) !important;
-}
-
-/* Typography & Text Colors */
-html.light .text-white:not(.glow-btn-purple):not(.glow-btn-gold):not(.text-transparent):not([class*="bg-purple-6"]):not([class*="bg-purple-5"]):not([class*="bg-indigo-6"]):not([class*="bg-emerald-6"]):not([class*="bg-emerald-5"]):not([class*="bg-red-6"]):not([class*="bg-amber-6"]):not([class*="bg-blue-6"]):not([class*="from-purple-"]):not([class*="from-emerald-"]):not([class*="from-red-"]) {
+html.light .bg-gray-900,
+html.light [class*="bg-gray-900/"],
+html.light .bg-gray-950 {
+  background-color: #f8fafc !important;
+  border-color: #e2e8f0 !important;
   color: #0f172a !important;
 }
 
-html.light .hover\:text-white:hover:not(.glow-btn-purple):not(.glow-btn-gold):not([class*="bg-purple-6"]) {
+/* Buttons & Links that use bg-gray-900 or bg-gray-800 */
+html.light button.bg-gray-900,
+html.light a.bg-gray-900,
+html.light button.bg-gray-800,
+html.light a.bg-gray-800 {
+  background-color: #f1f5f9 !important;
+  border: 1px solid #cbd5e1 !important;
+  color: #1e293b !important;
+}
+
+/* Hover states for secondary buttons, rows & interactive surfaces */
+html.light [class*="hover:bg-[#1"]:hover,
+html.light .hover\:bg-gray-800:hover,
+html.light [class*="hover:bg-gray-800/"]:hover,
+html.light .hover\:bg-gray-700:hover,
+html.light [class*="hover:bg-white/[0."]:hover,
+html.light button.bg-gray-900:hover,
+html.light a.bg-gray-900:hover,
+html.light button.bg-gray-800:hover,
+html.light a.bg-gray-800:hover {
+  background-color: #e2e8f0 !important;
+  color: #0f172a !important;
+}
+
+/* 4. Form Fields (Input, Select, Textarea) -> Bright White with Slate Border */
+html.light input:not([type="checkbox"]):not([type="radio"]):not(.bg-transparent),
+html.light select,
+html.light textarea {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+  border-color: #cbd5e1 !important;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04) !important;
+}
+
+html.light input:not([type="checkbox"]):not([type="radio"]):not(.bg-transparent):focus,
+html.light select:focus,
+html.light textarea:focus {
+  background-color: #ffffff !important;
+  border-color: #7c3aed !important;
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.15) !important;
+}
+
+html.light input.bg-transparent {
+  background-color: transparent !important;
+  color: #0f172a !important;
+}
+
+html.light input::placeholder,
+html.light textarea::placeholder {
+  color: #94a3b8 !important;
+}
+
+html.light select option {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+}
+
+/* 5. Dark Gradients -> Clean Light Mode Gradients */
+html.light [class*="from-[#0"],
+html.light [class*="from-[#1"] {
+  background-image: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%) !important;
+  background-color: #ffffff !important;
+}
+
+html.light [class*="from-[#0"]:hover,
+html.light [class*="from-[#1"]:hover {
+  background-image: linear-gradient(180deg, #ffffff 0%, #f1f5f9 100%) !important;
+}
+
+html.light [class*="from-purple-900"],
+html.light [class*="from-purple-950"] {
+  background-image: linear-gradient(135deg, #f3e8ff 0%, #e0e7ff 100%) !important;
+  background-color: #f3e8ff !important;
+}
+
+/* 6. Dark Tinted Badges, Alerts & Action Pills -> Soft Pastel Light Mode Tints */
+html.light [class*="bg-purple-950"],
+html.light [class*="bg-purple-900"] {
+  background-color: #f3e8ff !important;
+  border-color: #d8b4fe !important;
+  color: #6b21a8 !important;
+}
+html.light [class*="hover:bg-purple-900"]:hover,
+html.light [class*="hover:bg-purple-950"]:hover {
+  background-color: #e9d5ff !important;
+}
+
+html.light [class*="bg-amber-950"],
+html.light [class*="bg-amber-900"] {
+  background-color: #fef3c7 !important;
+  border-color: #fcd34d !important;
+  color: #92400e !important;
+}
+html.light [class*="hover:bg-amber-900"]:hover,
+html.light [class*="hover:bg-amber-950"]:hover {
+  background-color: #fde68a !important;
+  color: #92400e !important;
+}
+
+html.light [class*="bg-emerald-950"],
+html.light [class*="bg-emerald-900"] {
+  background-color: #d1fae5 !important;
+  border-color: #6ee7b7 !important;
+  color: #065f46 !important;
+}
+html.light [class*="hover:bg-emerald-900"]:hover {
+  background-color: #a7f3d0 !important;
+}
+
+html.light [class*="bg-blue-950"],
+html.light [class*="bg-blue-900"] {
+  background-color: #dbeafe !important;
+  border-color: #93c5fd !important;
+  color: #1e40af !important;
+}
+html.light [class*="hover:bg-blue-800"]:hover {
+  background-color: #bfdbfe !important;
+}
+
+html.light [class*="bg-cyan-900"] {
+  background-color: #cffafe !important;
+  border-color: #67e8f9 !important;
+  color: #155e75 !important;
+}
+
+html.light [class*="bg-red-950"],
+html.light [class*="bg-red-900"],
+html.light [class*="bg-rose-950"],
+html.light [class*="bg-rose-900"] {
+  background-color: #fee2e2 !important;
+  border-color: #fca5a5 !important;
+  color: #991b1b !important;
+}
+html.light [class*="hover:bg-red-950"]:hover,
+html.light [class*="hover:bg-red-900"]:hover,
+html.light [class*="hover:bg-rose-950"]:hover {
+  background-color: #fecaca !important;
+  color: #991b1b !important;
+}
+
+/* Modal Backdrop in Light Mode */
+html.light .bg-black\/80,
+html.light .bg-black\/70 {
+  background-color: rgba(15, 23, 42, 0.45) !important;
+}
+
+/* 7. Borders & Dividers */
+html.light [class*="border-white/"],
+html.light [class*="border-gray-700"],
+html.light [class*="border-gray-800"],
+html.light .border-gray-900 {
+  border-color: #e2e8f0 !important;
+}
+
+html.light [class*="divide-gray-800"] > :not([hidden]) ~ :not([hidden]) {
+  border-color: #e2e8f0 !important;
+}
+
+html.light [class*="border-purple-800"],
+html.light [class*="border-purple-900"] {
+  border-color: #d8b4fe !important;
+}
+
+html.light [class*="border-amber-800"] {
+  border-color: #fcd34d !important;
+}
+
+html.light [class*="border-emerald-800"],
+html.light [class*="border-emerald-900"] {
+  border-color: #6ee7b7 !important;
+}
+
+html.light [class*="border-blue-800"] {
+  border-color: #93c5fd !important;
+}
+
+html.light [class*="border-red-800"],
+html.light [class*="border-red-900"],
+html.light [class*="border-rose-800"],
+html.light [class*="border-rose-900"] {
+  border-color: #fca5a5 !important;
+}
+
+/* 8. Typography & Text Contrast */
+html.light .text-white:not(.glow-btn-purple):not(.glow-btn-gold):not(.text-transparent) {
+  color: #0f172a !important;
+}
+
+html.light .hover\:text-white:hover:not(.glow-btn-purple):not(.glow-btn-gold) {
   color: #0f172a !important;
 }
 
@@ -254,61 +386,126 @@ html.light .text-gray-400 {
   color: #475569 !important;
 }
 
-html.light .text-gray-500 {
+html.light .text-gray-500,
+html.light .text-gray-600 {
   color: #64748b !important;
 }
 
-/* Accent text contrast boosts in Light Mode */
+/* Colored Accent Text Contrast in Light Mode */
 html.light .text-purple-200,
 html.light .text-purple-300,
-html.light .text-purple-300\/90 {
+html.light [class*="text-purple-300/"],
+html.light .text-purple-400 {
   color: #6d28d9 !important;
 }
 
-html.light .text-amber-300 {
+html.light .text-amber-200,
+html.light .text-amber-300,
+html.light .text-amber-400 {
   color: #b45309 !important;
+}
+
+html.light .text-yellow-400 {
+  color: #a16207 !important;
 }
 
 html.light .text-emerald-300,
 html.light .text-emerald-400 {
-  color: #059669 !important;
+  color: #047857 !important;
+}
+
+html.light .text-blue-300,
+html.light .text-blue-400 {
+  color: #1d4ed8 !important;
 }
 
 html.light .text-cyan-300,
 html.light .text-cyan-400 {
-  color: #0284c7 !important;
+  color: #0369a1 !important;
 }
 
-html.light .bg-purple-950\/40,
-html.light .bg-purple-950\/60,
-html.light .bg-purple-950\/80 {
-  background-color: rgba(139, 92, 246, 0.12) !important;
+html.light .text-red-200,
+html.light .text-red-300,
+html.light .text-red-400 {
+  color: #b91c1c !important;
 }
 
-html.light .bg-amber-950\/20,
-html.light .bg-amber-950\/40 {
-  background-color: rgba(245, 158, 11, 0.12) !important;
+html.light .text-rose-200,
+html.light [class*="text-rose-200/"],
+html.light .text-rose-300,
+html.light .text-rose-400 {
+  color: #be123c !important;
 }
 
 /* Price gradient in OfferCard for Light Mode */
 html.light .from-amber-300.to-amber-100 {
-  --tw-gradient-from: #d97706 !important;
-  --tw-gradient-to: #b45309 !important;
+  background-image: linear-gradient(90deg, #d97706 0%, #b45309 100%) !important;
 }
 
-/* Shadows in Light Mode */
-html.light .shadow-black\/40,
-html.light .shadow-purple-950\/30,
-html.light .shadow-purple-950\/40,
-html.light .shadow-emerald-950\/20,
-html.light .shadow-amber-950\/30,
-html.light .shadow-amber-950\/40 {
-  --tw-shadow-color: rgba(15, 23, 42, 0.08) !important;
+/* 9. Primary Solid & Gradient Action Buttons -> Keep Vibrant Colors & White Text */
+html.light .glow-btn-purple,
+html.light .glow-btn-gold,
+html.light .bg-purple-600,
+html.light .bg-purple-500,
+html.light .bg-indigo-600,
+html.light .bg-emerald-600,
+html.light .bg-emerald-500,
+html.light .bg-blue-600,
+html.light .bg-red-600,
+html.light .bg-red-500,
+html.light .bg-rose-600,
+html.light [class*="from-purple-600"],
+html.light [class*="from-purple-500"],
+html.light [class*="from-emerald-600"] {
+  color: #ffffff !important;
 }
 
-/* Inputs, Selects, Textareas in Light Mode */
-html.light input,
-html.light select,
-html.light textarea {
-  color: #0f172a;
+html.light .bg-purple-600 {
+  background-color: #7c3aed !important;
+  border-color: #6d28d9 !important;
+}
+html.light .bg-purple-600:hover,
+html.light .hover\:bg-purple-500:hover {
+  background-color: #6d28d9 !important;
+  color: #ffffff !important;
+}
+
+html.light .bg-emerald-600 {
+  background-color: #059669 !important;
+}
+html.light .bg-emerald-600:hover,
+html.light .hover\:bg-emerald-500:hover {
+  background-color: #047857 !important;
+  color: #ffffff !important;
+}
+
+html.light .bg-blue-600 {
+  background-color: #2563eb !important;
+}
+html.light .bg-blue-600:hover,
+html.light .hover\:bg-blue-500:hover {
+  background-color: #1d4ed8 !important;
+  color: #ffffff !important;
+}
+
+html.light .bg-red-600 {
+  background-color: #dc2626 !important;
+}
+html.light .bg-red-600:hover,
+html.light .hover\:bg-red-500:hover {
+  background-color: #b91c1c !important;
+  color: #ffffff !important;
+}
+
+html.light .bg-rose-600 {
+  background-color: #e11d48 !important;
+}
+
+html.light button[class*="from-purple-600"] *,
+html.light a[class*="from-purple-600"] *,
+html.light button[class*="from-emerald-600"] *,
+html.light a[class*="from-emerald-600"] *,
+html.light .glow-btn-purple *,
+html.light .glow-btn-gold * {
+  color: #ffffff !important;
 }

@@ -22,9 +22,17 @@ async function connectDatabase() {
       console.log('[database] Local MongoDB not reachable. Initializing embedded Replica Set for full Transaction support...');
       try {
         const { MongoMemoryReplSet } = require('mongodb-memory-server');
-        mongoServer = await MongoMemoryReplSet.create({
-          replSet: { count: 1, storageEngine: 'wiredTiger' },
-        });
+        const embeddedPort = Number(process.env.MONGO_EMBEDDED_PORT || 27018);
+        try {
+          mongoServer = await MongoMemoryReplSet.create({
+            replSet: { count: 1, storageEngine: 'wiredTiger' },
+            instanceOpts: [{ port: embeddedPort }],
+          });
+        } catch {
+          mongoServer = await MongoMemoryReplSet.create({
+            replSet: { count: 1, storageEngine: 'wiredTiger' },
+          });
+        }
         uri = mongoServer.getUri();
         console.log(`[database] Embedded Replica Set started at: ${uri}`);
       } catch (err) {
@@ -35,6 +43,7 @@ async function connectDatabase() {
   }
 
   await mongoose.connect(uri, {
+    dbName: 'gamer2gamer',
     runtimeAdapters: { os: require('os') },
   });
   console.log(`[database] Connected to MongoDB at: ${uri}`);
@@ -44,12 +53,22 @@ async function start() {
   try {
     await connectDatabase();
 
-    const { User } = require('./models');
+    const { User, Offer } = require('./models');
     const userCount = await User.countDocuments();
     if (userCount === 0) {
       console.log('[server] Database empty, auto-populating demo seed data...');
       const { populateData } = require('../scripts/seed');
       await populateData();
+    } else {
+      await Offer.updateMany(
+        { description: /VPN|Offline mode/i },
+        {
+          $set: {
+            title: 'Pro Radiant Duo / Solo Rank Boost - Flexible Schedule',
+            description: 'Duo or solo queue rank progression with experienced Radiant players. Flexible play hours and role selection on European servers.',
+          },
+        }
+      );
     }
 
     const server = app.listen(env.PORT, () => {

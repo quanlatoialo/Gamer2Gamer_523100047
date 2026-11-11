@@ -15,15 +15,12 @@ export default function DemoBanner() {
             ESCROW VAULT 2.0:
           </span>
           <span className="text-gray-300 hidden sm:inline">
-            Sàn giao dịch game P2P thử nghiệm — Bảo hiểm trung gian 100% & Sổ cái kế toán kép.
+            Sàn giao dịch game P2P thử nghiệm — Cơ chế ký quỹ trung gian & Sổ cái kế toán kép.
           </span>
         </div>
         <div className="flex items-center gap-3 shrink-0 font-mono text-[11px] text-gray-400">
-          <span className="hidden md:inline text-purple-300 bg-purple-950/60 px-2 py-0.5 rounded border border-purple-500/30">
-            TLS 256-bit Encrypted
-          </span>
           <span className="text-emerald-400 flex items-center gap-1 font-medium">
-            <span>● 0% Phí Gian Lận</span>
+            <span>● Giao dịch ký quỹ hai chiều</span>
           </span>
         </div>
       </div>

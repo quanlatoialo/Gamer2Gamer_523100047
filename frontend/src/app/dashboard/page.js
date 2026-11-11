@@ -150,8 +150,8 @@ export default function CustomerDashboardPage() {
             {stats.completedOrders || 0}
           </div>
           <div className="pt-2 border-t border-gray-800/80 flex items-center justify-between text-xs">
-            <span className="text-gray-400">Bảo Vệ Ký Quỹ:</span>
-            <span className="font-semibold text-emerald-400 text-[11px]">100% An Toàn</span>
+            <span className="text-gray-400">Cơ chế:</span>
+            <span className="font-semibold text-emerald-400 text-[11px]">Ký quỹ hai chiều</span>
           </div>
         </div>
       </div>

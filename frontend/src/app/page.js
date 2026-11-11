@@ -65,7 +65,7 @@ export default function HomePage() {
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-purple-950/80 via-[#16122c] to-indigo-950/80 border border-purple-500/40 text-purple-200 text-xs font-semibold tracking-wider mb-8 shadow-lg shadow-purple-950/40">
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
             <ShieldIcon className="w-3.5 h-3.5 text-purple-400" />
-            <span>KÝ QUỸ QUỐC TẾ • CƠ CHẾ BẢO LÃNH HAI CHIỀU 100%</span>
+            <span>SÀN GIAO DỊCH KÝ QUỸ • CƠ CHẾ XÁC NHẬN HAI CHIỀU</span>
           </div>
 
           {/* Main Title */}
@@ -123,10 +123,10 @@ export default function HomePage() {
           {/* Luxury Metric / Trust Ticker Bar */}
           <div className="mt-14 pt-10 border-t border-white/[0.06] grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
             <div className="text-center p-3 rounded-xl bg-white/[0.02] border border-white/[0.05]">
-              <div className="text-2xl sm:text-3xl font-extrabold text-white font-mono">100%</div>
+              <div className="text-2xl sm:text-3xl font-extrabold text-white font-mono">2 Chiều</div>
               <div className="text-xs text-gray-400 mt-1 flex items-center justify-center gap-1">
                 <ShieldIcon className="w-3.5 h-3.5 text-emerald-400" />
-                <span>Bảo chứng ký quỹ</span>
+                <span>Xác nhận ký quỹ</span>
               </div>
             </div>
             <div className="text-center p-3 rounded-xl bg-white/[0.02] border border-white/[0.05]">
@@ -211,10 +211,10 @@ export default function HomePage() {
               Sản Phẩm Đang Mở
             </div>
             <h2 className="text-2xl sm:text-3xl font-black text-white font-heading mt-1">
-              Tin Rao Mới Nhất Được Xác Thực
+              Tin Rao Mới Nhất
             </h2>
             <p className="text-xs sm:text-sm text-gray-400 mt-1">
-              Được bảo chứng 100% bởi quỹ trung gian escrow, kiểm tra hàng kỹ trước khi giải ngân
+              Giao dịch qua quỹ trung gian escrow, kiểm tra hàng trước khi xác nhận giải ngân
             </p>
           </div>
 
@@ -307,7 +307,7 @@ export default function HomePage() {
               Két Ký Quỹ Handover Vault™ Hoạt Động Thế Nào?
             </h2>
             <p className="text-sm sm:text-base text-gray-300 mt-3 font-light leading-relaxed">
-              Giải pháp loại bỏ 100% rủi ro lừa đảo qua mạng: tiền giữ an toàn tại tài khoản trung gian, thông tin tài khoản được mã hóa và chỉ bàn giao khi thỏa mãn cam kết hai bên.
+              Hỗ trợ giao dịch an toàn: tiền được giữ tại tài khoản trung gian, thông tin tài khoản được lưu trữ tập trung và chỉ giải ngân khi có xác nhận từ hai bên.
             </p>
           </div>
 

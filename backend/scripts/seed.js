@@ -124,7 +124,7 @@ async function populateData() {
     await SellerApplication.create({
       user: userMap['applicant@gamer2gamer.com']._id,
       requestedRole: 'seller',
-      message: 'I have operated an EU gaming marketplace shop for 4 years with 100% positive feedback.',
+      message: 'I have operated an EU gaming marketplace shop for 4 years with consistent positive feedback.',
       status: 'pending',
     });
     console.log('[seed] Created pending seller application');
@@ -288,8 +288,8 @@ async function populateData() {
       game: gameMap['valorant']._id,
       category: catMap['valorant:rank-boost']._id,
       type: 'boosting',
-      title: 'Pro Radiant Duo / Solo Rank Boost - High Winrate Guaranteed',
-      description: 'Boost performed with VPN matching your city. Offline mode enabled on client. Stream option available on request.',
+      title: 'Pro Radiant Duo / Solo Rank Boost - Flexible Schedule',
+      description: 'Duo or solo queue rank progression with experienced Radiant players. Flexible play hours and role selection on European servers.',
       region: 'Europe',
       unitLabel: 'Rank Division',
       unitPrice: 2200, // 22.00 EUR per division
@@ -324,6 +324,17 @@ async function populateData() {
       images: ['/images/offers/lol-boost.webp'],
     },
   ];
+
+  // Clean up any legacy seed offer containing VPN / Offline mode text
+  await Offer.updateMany(
+    { description: /VPN|Offline mode/i },
+    {
+      $set: {
+        title: 'Pro Radiant Duo / Solo Rank Boost - Flexible Schedule',
+        description: 'Duo or solo queue rank progression with experienced Radiant players. Flexible play hours and role selection on European servers.',
+      },
+    }
+  );
 
   const offerList = [];
   for (const o of offersDef) {
