@@ -41,7 +41,7 @@ export default function MerchantEarningsPage() {
     try {
       setLoading(true);
       setError('');
-      const res = await api.get('/account/merchant/earnings');
+      const res = await api.get('/merchant/earnings');
       setData(res);
     } catch (err) {
       setError(err.message || 'Failed to load earnings breakdown');

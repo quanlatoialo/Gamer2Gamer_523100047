@@ -37,7 +37,7 @@ export default function BecomeSellerPage() {
     try {
       setLoading(true);
       setError('');
-      const res = await api.get('/account/seller-applications/mine');
+      const res = await api.get('/seller-applications/mine');
       setApplications(res.items || []);
     } catch (err) {
       setError(err.message || 'Failed to load application history');
@@ -57,7 +57,7 @@ export default function BecomeSellerPage() {
       setSubmitting(true);
       setError('');
       setSuccess('');
-      await api.post('/account/seller-applications', {
+      await api.post('/seller-applications', {
         requestedRole: role,
         message: message.trim(),
       });

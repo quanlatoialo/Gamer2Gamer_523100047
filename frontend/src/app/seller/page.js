@@ -42,7 +42,7 @@ export default function MerchantDashboardPage() {
     try {
       setLoading(true);
       setError('');
-      const res = await api.get('/account/merchant/dashboard');
+      const res = await api.get('/merchant/dashboard');
       setData(res);
     } catch (err) {
       setError(err.message || 'Failed to load merchant data');
