@@ -1,0 +1,27 @@
+# Thư viện cài bằng npm (cài lại bằng npm install)
+node_modules/
+
+# File build của Next.js
+.next/
+.swc/
+out/
+
+# Biến môi trường và bí mật
+.env
+.env.*
+!.env.example
+
+# Ảnh người dùng tải lên khi chạy demo
+backend/uploads/*
+!backend/uploads/.gitkeep
+
+# Báo cáo Word và file tạm
+*.docx
+~$*
+*.log
+.DS_Store
+Thumbs.db
+
+# Tệp chạy MongoDB do mongodb-memory-server tải về
+*.exe
+*.exe.md5
